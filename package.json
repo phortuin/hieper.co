@@ -1,0 +1,33 @@
+{
+  "name": "dropbox-markdown-cms",
+  "version": "1.0.0",
+  "description": "Markdown-Dropbox-CMS",
+  "keywords": [
+    "markdown",
+    "md",
+    "dropbox",
+    "cms",
+    "static",
+    "flat-file"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/phortuin/dropbox-markdown-cms",
+  "author": {
+    "name": "Anne Fortuin",
+    "url": "phortuin.nl"
+  },
+  "repository": "phortuin/dropbox-markdown-cms",
+  "main": "index.js",
+  "engines": {
+    "node": ">=6"
+  },
+  "scripts": {
+    "test": "tape test.js"
+  },
+  "devDependencies": {
+    "tape": "4.10.1"
+  },
+  "dependencies": {
+    "dotenv-safe": "6.1.0"
+  }
+}
