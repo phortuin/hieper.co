@@ -1,7 +1,7 @@
 {
-  "name": "dropbox-markdown-cms",
+  "name": "dropbox-markdown-ssg",
   "version": "1.0.0",
-  "description": "Markdown-Dropbox-CMS",
+  "description": "Static site generator for Markdown files stored on Dropbox",
   "keywords": [
     "markdown",
     "md",
@@ -11,23 +11,38 @@
     "flat-file"
   ],
   "license": "MIT",
-  "homepage": "https://github.com/phortuin/dropbox-markdown-cms",
+  "homepage": "https://github.com/phortuin/dropbox-markdown-ssg",
   "author": {
     "name": "Anne Fortuin",
     "url": "phortuin.nl"
   },
-  "repository": "phortuin/dropbox-markdown-cms",
+  "repository": "phortuin/dropbox-markdown-ssg",
   "main": "index.js",
   "engines": {
     "node": ">=6"
   },
   "scripts": {
+    "prebuild": "rimraf dist && mkdirp dist",
+    "build": "run-s build:*",
+    "build:pages": "node index.js -d dist",
     "test": "tape test.js"
   },
   "devDependencies": {
     "tape": "4.10.1"
   },
   "dependencies": {
-    "dotenv-safe": "6.1.0"
+    "bluebird": "3.5.4",
+    "dotenv-safe": "6.1.0",
+    "dropbox": "4.0.17",
+    "markdown-description": "1.1.0",
+    "markdown-title": "1.0.2",
+    "marked": "0.6.2",
+    "mkdirp": "0.5.1",
+    "node-fetch": "2.3.0",
+    "npm-run-all": "4.1.5",
+    "nunjucks": "3.2.0",
+    "prismjs": "1.16.0",
+    "rimraf": "2.6.3",
+    "yargs": "13.2.2"
   }
 }

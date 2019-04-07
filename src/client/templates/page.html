@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>{{ title or 'Hieper.co' }}</title>
+	<link rel="stylesheet" href="/index{{ cssRev }}.css">
+	<meta name="description" content="{{ description }}">
+</head>
+<body>
+
+	<main role="main">
+		<article class="container note">
+			<a class="silent icon" href="/">❯{% if slug == 'index' %} hieper.co{% endif %}</a>
+			{{ markdown | markdown | safe }}
+		</article>
+	</main>
+</body>
+</html>
