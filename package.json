@@ -24,16 +24,20 @@
   "scripts": {
     "prebuild": "rimraf dist && mkdirp dist",
     "build": "run-s build:*",
+    "dev:buildserver": "netlify-lambda build src/server",
+    "dev:server": "netlify-lambda serve src/server",
     "build:pages": "node index.js -d dist",
     "test": "tape test.js"
   },
   "devDependencies": {
+    "netlify-lambda": "1.4.3",
     "tape": "4.10.1"
   },
   "dependencies": {
     "bluebird": "3.5.4",
     "dotenv-safe": "6.1.0",
     "dropbox": "4.0.17",
+    "got": "9.6.0",
     "markdown-description": "1.1.0",
     "markdown-title": "1.0.2",
     "marked": "0.6.2",
