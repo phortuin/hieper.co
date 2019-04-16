@@ -1,4 +1,4 @@
-import dotenv from 'dotenv-safe'
+import dotenv from 'dotenv'
 import got from 'got' // netlify-lambda will throw warnings => https://github.com/sindresorhus/got/issues/742
 
 dotenv.config()
