@@ -24,7 +24,7 @@
   "scripts": {
     "prebuild": "rimraf dist && mkdirp dist/client",
     "build": "run-s build:*",
-    "dev:buildserver": "netlify-lambda build src/server",
+    "build:server": "netlify-lambda build src/server",
     "dev:server": "netlify-lambda serve src/server",
     "build:pages": "node index.js -d dist/client",
     "test": "tape test.js"
