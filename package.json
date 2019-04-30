@@ -17,20 +17,28 @@
     "url": "phortuin.nl"
   },
   "repository": "phortuin/dropbox-markdown-ssg",
-  "main": "index.js",
   "engines": {
     "node": ">=6"
   },
   "scripts": {
     "prebuild": "rimraf dist && mkdirp dist/client",
     "build": "run-s build:*",
+    "build:assets": "ncp src/client/assets dist/client",
+    "build:css": "ncp src/client/index.css dist/client/index.css",
+    "build:pages": "./scripts/build-pages.js -d dist/client",
     "build:server": "netlify-lambda build src/server",
+    "dev": "run-p dev:*",
+    "dev:client": "serve dist/client",
     "dev:server": "netlify-lambda serve src/server",
-    "build:pages": "node index.js -d dist/client",
-    "test": "tape test.js"
+    "dev:watch": "run-p watch:*",
+    "test": "tape test.js",
+    "watch:css": "chokidar 'src/client/index.css' --command 'npm run build:css'",
+    "watch:pages": "chokidar 'src/client/templates/*.html' --command 'npm run build:pages'"
   },
   "devDependencies": {
+    "chokidar-cli": "1.2.2",
     "netlify-lambda": "1.4.3",
+    "serve": "11.0.0",
     "tape": "4.10.1"
   },
   "dependencies": {
@@ -43,6 +51,7 @@
     "markdown-title": "1.0.2",
     "marked": "0.6.2",
     "mkdirp": "0.5.1",
+    "ncp": "2.0.0",
     "node-fetch": "2.3.0",
     "npm-run-all": "4.1.5",
     "nunjucks": "3.2.0",
