@@ -12,7 +12,7 @@
 
 	<main role="main">
 		<article class="container note">
-			<a class="silent icon" href="/">❯{% if slug == 'index' %} hieper.co{% endif %}</a>
+			<a class="silent icon" href="/">❯ hieper.co{% if slug !== 'index' %}/{{ slug }}{% endif %}</a>
 			{{ markdown | markdown | safe }}
 		</article>
 	</main>
