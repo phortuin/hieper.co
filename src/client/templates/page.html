@@ -1,18 +1,19 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
 	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+	<meta http-equiv="x-ua-compatible" content="ie=edge">
+	<meta name="description" content="{{ description }}">
 	<title>{{ title or 'Hieper.co' }}</title>
 	<link rel="stylesheet" href="/index.css">
-	<meta name="description" content="{{ description }}">
 </head>
 <body>
-
 	<main role="main">
-		<article class="container note">
+		<nav aria-label="Link naar homepage">
 			<a class="silent icon" href="/">❯ hieper.co{% if slug !== 'index' %}/{{ slug }}{% endif %}</a>
+		</nav>
+		<article>
 			{{ markdown | markdown | safe }}
 		</article>
 	</main>
