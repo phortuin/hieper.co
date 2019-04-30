@@ -1,0 +1,182 @@
+@font-face {
+	font-family: 'iA Writer Quattro S';
+	src: url('/fonts/iAWriterQuattroS-Regular.woff2') format('woff2'),
+		 url('/fonts/iAWriterQuattroS-Regular.woff') format('woff');
+	font-weight: normal;
+	font-style: normal;
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: 'iA Writer Quattro S';
+	src: url('/fonts/iAWriterQuattroS-Bold.woff2') format('woff2'),
+		 url('/fonts/iAWriterQuattroS-Bold.woff') format('woff');
+	font-weight: bold;
+	font-style: normal;
+	font-display: fallback;
+}
+
+@font-face {
+	font-family: 'iA Writer Quattro S';
+	src: url('/fonts/iAWriterQuattroS-Italic.woff2') format('woff2'),
+		 url('/fonts/iAWriterQuattroS-Italic.woff') format('woff');
+	font-weight: normal;
+	font-style: italic;
+	font-display: fallback;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: 'iA Writer Quattro S', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+	-webkit-text-size-adjust: 100%;
+	color: black;
+	font-size: 100%;
+	line-height: 1.25;
+}
+
+main {
+	max-width: 38rem;
+	padding: 1.25rem;
+}
+
+nav {
+	margin: 0 0 1.25rem;
+}
+
+
+nav:after {
+	content: "";
+	display: block;
+	border-top: 1px solid black;
+	margin-top: 1.25rem;
+	width: calc(100% + 2.5rem);
+	margin-left: -1.25rem;
+}
+
+@media screen and (min-width: 768px) {
+	nav:after {
+		width: calc(75% + 1.25rem);
+	}
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-size: 1em;
+	font-weight: normal;
+	margin: 0 0 1.25rem;
+}
+
+h1 {
+	font-weight: normal;
+	font-size: 1em;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+h1:first-child {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	padding: 0;
+	margin: -1px;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	border: 0;
+}
+
+h2 {
+	display: inline-block;
+	margin-bottom: 0;
+	position: relative;
+	margin-bottom: 1rem;
+}
+
+h2:after {
+	content: "";
+	position: absolute;
+	display: block;
+	width: calc(100% + 1.25rem);
+	margin-top: 0.25rem;
+	border-top: 1px solid black;
+	margin-left: -1.25rem;
+}
+
+p {
+	margin: 0 0 1.25rem;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+
+figure {
+	display: block;
+	margin: 0 0 1.25rem;
+}
+
+img {
+	display: block;
+	max-width: 100%;
+}
+
+a {
+	color: blue;
+}
+
+a:not(:empty)[href^=http]:after {
+	content: " ↗"
+}
+
+a.silent {
+	text-decoration: none;
+	color: black;
+}
+
+a.icon {
+	text-transform: lowercase;
+}
+
+a.icon::after {
+	content: "_";
+	animation: pulse 1s steps(2, start) infinite;
+}
+
+strong {
+	letter-spacing: 1px;
+}
+
+@keyframes pulse {
+  to { visibility: hidden; }
+}
+
+sub,
+sup {
+	font-size: 0.75em;
+	line-height: 1;
+	vertical-align: 0;
+}
+
+sub {
+	vertical-align: bottom;
+}
+
+sup {
+	vertical-align: top;
+}
+
+hr {
+	border: 0;
+	background: black;
+	height: 1px;
+	width: calc(100% + 2.5rem);
+	margin: 0 0 1.25rem -1.25rem;
+}
+
+@media screen and (min-width: 768px) {
+	hr {
+		width: calc(75% + 1.25rem);
+	}
+}
