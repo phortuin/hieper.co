@@ -1,7 +1,18 @@
 language: node_js
-node_js:
-  - '10'
-  - '8'
-  - '6'
+git:
+  depth: 1
+cache:
+  npm: true
 notifications:
   email: false
+node_js:
+  - 10
+  - 8
+  - 6
+jobs:
+  include:
+    - stage: build & deploy
+      node_js: 10
+      if: branch = master
+      script: npm run build
+      after_success: npm run deploy
