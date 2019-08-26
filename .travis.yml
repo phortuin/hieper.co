@@ -1,16 +1,21 @@
 language: node_js
+os: linux
 git:
   depth: 1
 notifications:
   email: false
 node_js:
-  - 10
-  - 8
-  - 6
-jobs:
+  - "10"
+  - "8"
+  - "6"
+stages:
+  - name: test
+    if: NOT type = api
+  - release
+matrix:
   include:
-    - stage: build & deploy
-      node_js: 10
+    - stage: release
+      node_js: "10"
       if: branch = master
       script: npm run build
       after_success: npm run deploy
