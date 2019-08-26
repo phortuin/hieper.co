@@ -26,6 +26,7 @@
     "build:assets": "ncp src/client/assets dist/client",
     "build:pages": "./scripts/build-pages.js -d dist/client",
     "build:server": "netlify-lambda build src/server",
+    "deploy": "./scripts/deploy-to-s3.js -s dist/client",
     "dev": "run-p dev:*",
     "dev:client": "serve dist/client",
     "dev:server": "netlify-lambda serve src/server",
@@ -41,6 +42,7 @@
     "tape": "4.10.1"
   },
   "dependencies": {
+    "aws-sdk": "2.517.0",
     "bluebird": "3.5.4",
     "dotenv": "7.0.0",
     "dotenv-safe": "6.1.0",
@@ -56,6 +58,7 @@
     "nunjucks": "3.2.0",
     "prismjs": "1.16.0",
     "rimraf": "2.6.3",
+    "s3-folder-upload": "2.0.2",
     "yargs": "13.2.2"
   }
 }
