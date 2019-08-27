@@ -25,11 +25,9 @@
     "build": "run-s build:*",
     "build:assets": "ncp src/client/assets dist/client",
     "build:pages": "./scripts/build-pages.js -d dist/client",
-    "build:server": "netlify-lambda build src/server",
     "deploy": "./scripts/deploy-to-s3.js -s dist/client",
     "dev": "run-p dev:*",
     "dev:client": "serve dist/client",
-    "dev:server": "netlify-lambda serve src/server",
     "dev:watch": "run-p watch:*",
     "test": "tape test.js",
     "watch:css": "chokidar 'src/client/assets/*' --command 'npm run build:assets'",
@@ -37,7 +35,6 @@
   },
   "devDependencies": {
     "chokidar-cli": "1.2.2",
-    "netlify-lambda": "1.4.3",
     "serve": "11.0.0",
     "tape": "4.10.1"
   },
