@@ -21,17 +21,17 @@
     "node": ">=6"
   },
   "scripts": {
-    "prebuild": "rimraf dist && mkdirp dist/client",
+    "prebuild": "rimraf dist && mkdirp dist",
     "build": "run-s build:*",
-    "build:assets": "ncp src/client/assets dist/client",
-    "build:pages": "./scripts/build-pages.js -d dist/client",
-    "deploy": "./scripts/deploy-to-s3.js -s dist/client",
+    "build:assets": "ncp src/assets dist",
+    "build:pages": "./scripts/build-pages.js -d dist",
+    "deploy": "./scripts/deploy-to-s3.js -s dist",
     "dev": "run-p dev:*",
-    "dev:client": "serve dist/client",
+    "dev:client": "serve dist",
     "dev:watch": "run-p watch:*",
     "test": "tape test.js",
-    "watch:css": "chokidar 'src/client/assets/*' --command 'npm run build:assets'",
-    "watch:pages": "chokidar 'src/client/templates/*.html' --command 'npm run build:pages'"
+    "watch:css": "chokidar 'src/assets/*' --command 'npm run build:assets'",
+    "watch:pages": "chokidar 'src/templates/*.html' --command 'npm run build:pages'"
   },
   "devDependencies": {
     "chokidar-cli": "1.2.2",
