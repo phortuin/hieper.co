@@ -34,7 +34,7 @@
     "watch:pages": "chokidar 'src/templates/*.html' --command 'npm run build:pages'"
   },
   "devDependencies": {
-    "chokidar-cli": "1.2.2",
+    "chokidar-cli": "2.0.0",
     "serve": "11.0.0",
     "tape": "4.10.1"
   },
@@ -47,7 +47,7 @@
     "got": "9.6.0",
     "markdown-description": "1.1.0",
     "markdown-title": "1.0.2",
-    "marked": "0.6.2",
+    "marked": "0.7.0",
     "mkdirp": "0.5.1",
     "ncp": "2.0.0",
     "node-fetch": "2.3.0",
