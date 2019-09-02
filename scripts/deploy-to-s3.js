@@ -1,23 +1,50 @@
 #!/usr/bin/env node
 
 require('dotenv-safe').config()
-const uploadFolder = require('s3-folder-upload')
+const aws = require('aws-sdk')
+const s3 = new aws.S3()
+const globby = require('globby')
 const emptyBucket = require('../lib/s3-empty-bucket')
+const getFileBodyAndMimetype = require('../lib/file-get-body-and-mimetype')
 const argv = require('yargs')
 	.alias('s', 'source')
+	.alias('b', 'bucket')
 	.argv
 
-const credentials = {
-	accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-	secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-	region: process.env.AWS_REGION,
-	bucket: process.env.AWS_BUCKET,
+const targetBucket = argv.bucket
+const sourceDirectory = argv.source
+
+function getLocalFiles(folder) {
+	return globby(`${folder}/**/*`)
 }
 
-const options = {
-	useFoldersForFileTypes: false
+function convertFilesToS3Objects(files) {
+	return files.map(async file => {
+		try {
+			const { body, mimeType } = await getFileBodyAndMimetype(file)
+			const filename = file.replace(`${sourceDirectory}/`, '')
+			return {
+				Bucket: targetBucket,
+				Key: filename,
+				ContentType: mimeType,
+				Body: body
+			}
+		} catch(error) {
+			return Promise.reject(error)
+		}
+	})
 }
 
-emptyBucket()
-	.then(() => uploadFolder(argv.source, credentials, options))
+function uploadObjects(objects) {
+	return Promise.all(
+		objects.map(async object => {
+			return s3.putObject(await object).promise()
+		})
+	)
+}
+
+emptyBucket(targetBucket)
+	.then(() => getLocalFiles(sourceDirectory))
+	.then(convertFilesToS3Objects)
+	.then(uploadObjects)
 	.catch(console.error)

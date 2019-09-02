@@ -24,8 +24,8 @@
     "prebuild": "rimraf dist && mkdirp dist",
     "build": "run-s build:*",
     "build:assets": "ncp src/assets dist",
-    "build:pages": "./scripts/build-pages.js -d dist",
-    "deploy": "./scripts/deploy-to-s3.js -s dist",
+    "build:pages": "./scripts/build-pages.js --dest dist",
+    "deploy": "./scripts/deploy-to-s3.js --source dist --bucket hieper.co",
     "dev": "run-p dev:*",
     "dev:client": "serve dist",
     "dev:watch": "run-p watch:*",
@@ -55,7 +55,6 @@
     "nunjucks": "3.2.0",
     "prismjs": "1.16.0",
     "rimraf": "2.6.3",
-    "s3-folder-upload": "2.0.2",
     "yargs": "13.2.2"
   }
 }
