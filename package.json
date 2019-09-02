@@ -1,22 +1,14 @@
 {
-  "name": "dropbox-markdown-ssg",
+  "name": "hieper.co",
   "version": "1.0.0",
-  "description": "Static site generator for Markdown files stored on Dropbox",
-  "keywords": [
-    "markdown",
-    "md",
-    "dropbox",
-    "cms",
-    "static",
-    "flat-file"
-  ],
+  "description": "Hieper.co: statically generated site from Markdown files stored on Dropbox",
   "license": "MIT",
-  "homepage": "https://github.com/phortuin/dropbox-markdown-ssg",
+  "homepage": "https://github.com/phortuin/hieper.co",
   "author": {
     "name": "Anne Fortuin",
     "url": "phortuin.nl"
   },
-  "repository": "phortuin/dropbox-markdown-ssg",
+  "repository": "phortuin/hieper.co",
   "engines": {
     "node": ">=6"
   },
