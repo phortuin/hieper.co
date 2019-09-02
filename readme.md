@@ -7,6 +7,7 @@
 - [ ] `dropbox-get-files` needs support for pagination
 - [ ] `s3-empty-bucket` fix pagination for listObjectsV2 so that buckets of over 1000 files get emptied too
 - [ ] Rewrite build-pages into command line tool w/ configurable site name
+- [ ] Write tests
 
 ## Q
 
