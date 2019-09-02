@@ -2,12 +2,12 @@
 
 const getDropboxFiles = require('../lib/dropbox-get-files')
 const dropboxFileToHTML = require('../lib/dropbox-file-to-html')
-const writeToDest = require('../lib/write-to-dest')
+const writeToDestination = require('../lib/file-write-to-destination')
 const argv = require('yargs')
 	.alias('d', 'dest')
 	.argv
 
 getDropboxFiles()
 	.map(dropboxFileToHTML)
-	.map(writeToDest(argv.dest))
+	.map(writeToDestination(argv.dest))
 	.catch(console.error)
