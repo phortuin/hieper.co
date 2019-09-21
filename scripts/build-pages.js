@@ -7,5 +7,4 @@ const argv = require('yargs')
 	.argv
 
 dmssg(process.env.DROPBOX_ACCESS_TOKEN, { target: argv.dest, template: 'src/templates/page.html' })
-	.then(console.log)
 	.catch(console.error)
