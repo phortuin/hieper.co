@@ -1,13 +1,11 @@
 #!/usr/bin/env node
 
-const getDropboxFiles = require('../lib/dropbox-get-files')
-const dropboxFileToHTML = require('../lib/dropbox-file-to-html')
-const writeToDestination = require('../lib/file-write-to-destination')
+require('dotenv-safe').config()
+const dmssg = require('dropbox-markdown-ssg')
 const argv = require('yargs')
 	.alias('d', 'dest')
 	.argv
 
-getDropboxFiles()
-	.map(dropboxFileToHTML)
-	.map(writeToDestination(argv.dest))
+dmssg(process.env.DROPBOX_ACCESS_TOKEN, { target: argv.dest, template: 'src/templates/page.html' })
+	.then(console.log)
 	.catch(console.error)
