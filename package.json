@@ -1,6 +1,6 @@
 {
   "name": "hieper.co",
-  "version": "1.3.0",
+  "version": "1.4.0",
   "description": "Hieper.co: statically generated site from Markdown files stored on Dropbox",
   "license": "MIT",
   "homepage": "https://github.com/phortuin/hieper.co",
