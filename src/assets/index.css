@@ -102,6 +102,8 @@ h1:first-child {
 }
 
 h2 {
+	margin-top: -1.25rem; /* Add white space on top for when using a hash to link to an H2 */
+	padding-top: 1.25rem;
 	margin-bottom: 0.25rem;
 	font-size: 0.9375em;
 	letter-spacing: 2px;
