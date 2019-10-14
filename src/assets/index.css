@@ -58,7 +58,7 @@ body {
 	-webkit-text-size-adjust: 100%;
 	color: black;
 	font-size: 100%;
-	line-height: 1.25;
+	line-height: 1.35;
 }
 
 main {
@@ -83,32 +83,35 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0 0 1.25rem;
 }
 
-h1 {
-	font-weight: normal;
-	font-size: 1em;
+h1, h2 {
+	text-align: center;
 	text-transform: uppercase;
-	letter-spacing: 1px;
+	letter-spacing: 2px;
+	font-size: 0.9375em;
 }
 
-h1:first-child {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	padding: 0;
-	margin: -1px;
-	overflow: hidden;
-	clip: rect(0,0,0,0);
-	border: 0;
+h1 {
+	float: left;
+	margin: 0 -50% 2.5rem 50%;
+	transform: translateX(-50%);
+	border-bottom: 1px solid black;
+}
+
+h1::after {
+	display: block;
+	content: "";
+	border-top: 1px solid #bbb;
+	border-radius: 50%;
+}
+
+h1 + * {
+  clear: both;
 }
 
 h2 {
 	margin-top: -1.25rem; /* Add white space on top for when using a hash to link to an H2 */
 	padding-top: 1.25rem;
 	margin-bottom: 0.25rem;
-	font-size: 0.9375em;
-	letter-spacing: 2px;
-	text-transform: uppercase;
-	text-align: center;
 }
 
 p {
