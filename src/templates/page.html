@@ -20,7 +20,7 @@
 <body>
 	<main role="main">
 		<nav aria-label="Link naar homepage">
-			<a class="silent icon" href="/">❯ hieper.co{% if slug !== 'index' %}/{{ slug }}{% endif %}</a>
+			<a class="silent icon" href="/">❯ hieper.co{% if slug !== '' %}/{{ slug }}{% endif %}</a>
 		</nav>
 		<article>
 			{{ markdown | markdown | safe }}
